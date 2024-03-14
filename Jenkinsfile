@@ -1,28 +1,22 @@
 pipeline {
-    agent any
-    environment {
-        MAVEN_HOME = tool 'Maven'
-    }
-
+    agent any 
     stages {
-        stage('Build') {
+        stage('Build') { 
             steps {
                 echo 'Building..'
-                sh "${env.MAVEN_HOME}/bin/mvn compile"
+                sh 'mvn compile'          
             }
         }
-        
-        stage('Test') {
+        stage('Test') { 
             steps {
                 echo 'Testing..'
-                sh "${env.MAVEN_HOME}/bin/mvn test"
+                sh 'mvn test'
             }
         }
-        
-        stage('Package') {
+        stage('Deploy') { 
             steps {
-                echo 'Packaging..'
-                sh "${env.MAVEN_HOME}/bin/mvn package"
+                echo 'Deploying..'
+                sh 'mvn package'
             }
         }
     }
