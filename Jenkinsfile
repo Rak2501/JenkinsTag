@@ -5,7 +5,7 @@ pipeline {
     environment {
         MAVEN_HOME = tool 'Maven'
     }
-    
+
     stages {
         stage('Build') {
             steps {
